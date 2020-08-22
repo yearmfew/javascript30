@@ -1,0 +1,106 @@
+    html {
+    	box-sizing: border-box;
+
+    	font-family: 'helvetica neue';
+    	font-size: 20px;
+    	font-weight: 200;
+    }
+    
+    body {
+    	margin: 0;
+        background:url("img/jav2.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+
+
+
+    }
+    
+    *, *:before, *:after {
+    	box-sizing: inherit;
+    }
+    .heroes{
+    	height:100vh;
+    	margin:0;
+    	display:flex;
+    	align-items:center;
+    	justify-content:center;
+    	flex:1;
+    	flex-direction: row;
+    	border:10px solid red;
+    	flex-wrap:wrap;
+
+    }
+
+
+    h3{
+    	font-size:1.5rem;
+    	color:red;
+
+    }
+
+    span{
+        font-size:20px;
+    }
+
+    .hero{
+    	display:flex;
+    	flex:1;
+    	flex-direction:column;
+        flex-wrap: wrap;
+
+    	margin:10px;
+    	text-align: center;
+    	height:60vh;
+    	border:3px solid red;
+    	width:25vw;
+        background-color:blue;
+        color:white;
+
+    }
+    img {
+    	display:flex;
+    	align-items:center;
+    	justify-content:center;
+    	flex:1;
+    	flex-direction: column;
+    	width:100%;
+    	border:1px solid yellow;
+    }
+
+
+
+
+    .keys{
+    	display:flex;
+    	align-items:center;
+    	justify-content:center;
+    	flex:1;
+    	flex-direction:row;
+        flex-wrap:wrap;
+
+    }
+    .key{
+    	display:flex;
+    	flex-direction: column;
+    	flex:1;
+    	border:3px solid black;
+    	padding:0.5rem .5rem;
+    	text-align:center;
+    	margin:10px;
+        transition:all 0.15s;
+       
+        
+
+
+    }
+
+    .playing{
+            transform:scale(1.1);
+
+    	border-color:#ffc600;
+    	box-shadow:0 0 10px #ffc600;
+    }
+}
+
+
