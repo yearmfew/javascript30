@@ -11,36 +11,44 @@
         background:url("img/jav2.jpg");
         background-repeat:no-repeat;
         background-size:cover;
-
-
-
     }
     
     *, *:before, *:after {
     	box-sizing: inherit;
     }
     .heroes{
-    	height:100vh;
+    	height:70vh;
     	margin:0;
     	display:flex;
     	align-items:center;
     	justify-content:center;
     	flex:1;
     	flex-direction: row;
-    	border:10px solid red;
     	flex-wrap:wrap;
-
     }
 
 
     h3{
     	font-size:1.5rem;
-    	color:red;
+    	color:#DE59CE;
+    }
+    h1{
+        margin:auto;
+        padding:2rem;
+        font-size:100px;
 
+        text-align: center;
+    }
+    h1 span{
+        font-size:30px;
+    }
+    kbd{
+        font-size:30px;
     }
 
     span{
-        font-size:20px;
+        font-size:15px;
+        
     }
 
     .hero{
@@ -48,59 +56,59 @@
     	flex:1;
     	flex-direction:column;
         flex-wrap: wrap;
-
-    	margin:10px;
-    	text-align: center;
-    	height:60vh;
-    	border:3px solid red;
-    	width:25vw;
-        background-color:blue;
+        margin:10px;
+        text-align: center;
+        height:60vh;
+/*        border:3px solid red;
+*/        width:25vw;
+        /*background-color:rgb(100, 230, 234, .7);*/
+        background-color:rgb(222, 188, 44, .7);
         color:white;
-
-    }
-    img {
-    	display:flex;
-    	align-items:center;
-    	justify-content:center;
-    	flex:1;
-    	flex-direction: column;
-    	width:100%;
-    	border:1px solid yellow;
     }
 
+        img {
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         flex:1;
+         flex-direction: column;
+         width:100%;
+         height:5rem;
+/*         border:1px solid yellow;
+*/     }
 
 
 
-    .keys{
-    	display:flex;
-    	align-items:center;
-    	justify-content:center;
-    	flex:1;
-    	flex-direction:row;
-        flex-wrap:wrap;
 
+     .keys{
+         display:flex;
+         align-items:center;
+         justify-content:center;
+         flex:1;
+         flex-direction:row;
+         flex-wrap:wrap;
+     }
+
+     .key{
+         display:flex;
+         flex-direction: column;
+         flex:1;
+         border:3px solid black;
+         padding:0.3rem .3rem;
+         height:5rem;
+         text-align:center;
+         margin:10px;
+         transition:all 0.15s;
+         justify-content: center;
+         align-content: center;
+     }
+
+     .playing{
+        transform:scale(1.1);
+
+        border-color:#ffc600;
+        box-shadow:0 0 10px #ffc600;
     }
-    .key{
-    	display:flex;
-    	flex-direction: column;
-    	flex:1;
-    	border:3px solid black;
-    	padding:0.5rem .5rem;
-    	text-align:center;
-    	margin:10px;
-        transition:all 0.15s;
-       
-        
 
-
-    }
-
-    .playing{
-            transform:scale(1.1);
-
-    	border-color:#ffc600;
-    	box-shadow:0 0 10px #ffc600;
-    }
-}
 
 

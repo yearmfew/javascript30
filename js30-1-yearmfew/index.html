@@ -7,15 +7,18 @@
 </head>
 <body>
 
+<h1>Choose Your Hero <span><i>and make him talk...</i></span>
+</h1>
 	<div class="heroes" >
 		<div class="hero">
-			<h3>Cem Yılmaz</h3>
-			<img src="img/cem.jpg">
+				
+				<h3>Cem Yılmaz</h3>
+				<img src="img/cem.jpg">
 			<div class="keys">
 				
 				<div class="key" data-key="KeyQ">
 					<kbd>Q</kbd>
-					<span>Ne vereyim abime</span>
+					<span>Abim..</span>
 				</div>
 				<div class="key" data-key="KeyW">
 					<kbd>W</kbd>
@@ -33,8 +36,11 @@
 		</div>
 
 		<div class="hero">
-			<h3>Aykut Elmas</h3>
-			<img src="img/aykut.jpeg">
+			
+				
+				<h3>Aykut Elmas</h3>
+				<img src="img/aykut.jpeg">
+			
 			<div class="keys">
 				
 				<div class="key" data-key="KeyA">
@@ -57,30 +63,26 @@
 		</div>
 
 		<div class="hero">
-			<h3>Smiley</h3>
-			<img src="img/smiley.jpeg">
+			<h3>Smileys</h3>
+			<img src="img/smiley.jpg">
 			<div class="keys">
 				
 				<div class="key" data-key="KeyZ">
 					<kbd>Z</kbd>
-					<span></span>
 				</div>
 				<div class="key" data-key="KeyX">
 					<kbd>X</kbd>
-					<span></span>
 				</div>
 				<div class="key" data-key="KeyC">
 					<kbd>C</kbd>
-					<span></span>
 				</div>
 				<div class="key" data-key="KeyV">
 					<kbd>V</kbd>
-					<span></span>
 				</div>
 			</div>
 		</div>
 
-	
+
 		
 	</div>
 
@@ -99,18 +101,19 @@
 	<audio data-key="KeyC" src="sounds/smiley/3.mp3"></audio>
 	<audio data-key="KeyV" src="sounds/smiley/4.mp3"></audio>
 
-<script>
-	window.addEventListener("keydown", playSound);
-	
-	function playSound(e){
-		const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
+	<script>
+		window.addEventListener("keydown", playSound);
+
+		function playSound(e){
+			const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
+			if(!audio) return; 
 		// hepsi birlikte çalıyor??
 		audio.currentTime = 0;
 		audio.play();
 
 		const key = document.querySelector(`.key[data-key = "${e.code}"]`);
 		key.classList.add("playing");
-}
+	}
 
 
 
