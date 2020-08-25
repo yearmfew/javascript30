@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="clock">
+		<div class="clock-face">
+
+			<div class="hand hour-hand"></div>
+			<div class="hand min-hand"></div>
+			<div class="hand second-hand"></div>
+			<!-- <div class="rounds"><i class="fa fa-ravelry fa-sm" aria-hidden="true"></i></div> -->
+
+		</div>
+
+
+	</div>
+
+	<script>
+		const secondHand = document.querySelector(".second-hand");
+		const minHand = document.querySelector(".min-hand");
+		const hourHand = document.querySelector(".hour-hand");
+
+		function setDate(){
+			const now = new Date();
+
+			const seconds = now.getSeconds();
+
+			if (seconds == 0){
+				secondHand.style.transition = "none";
+			}
+
+			const secondsDegrees = (seconds * 6) + 90;
+			secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+
+			const mins = now.getMinutes();
+			const minsDegrees = (mins * 6) + 90;
+			minHand.style.transform = `rotate(${minsDegrees}deg)`;
+
+			const hours = now.getHours();
+			const hoursDegrees = (hours * 30) + 90;
+			hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
+
+
+
+
+		}
+
+		setInterval(setDate, 1000);
+
+
+	</script>
+	<script src="https://use.fontawesome.com/e40f39d34e.js"></script>
+</body>
+</html>
