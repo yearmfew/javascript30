@@ -8,18 +8,19 @@
 
 </head>
 <body>
-<div class="title">
-	
-<h1>Choose Your Hero 
-</h1>
-<span><i>and make him talk...</i></span>
-</div>
+	<div class="title">
+
+		<h1>Choose Your Hero 
+		</h1>
+		<span><i>and make him talk...</i></span>
+
+	</div>
 
 	<div class="heroes" >
 		<div class="hero">
-				
-				<h3>Cem Yılmaz</h3>
-				<img src="img/cem.jpg">
+
+			<h3>Cem Yılmaz</h3>
+			<img src="img/cem.jpg">
 			<div class="keys">
 				
 				<div class="key" data-key="KeyQ">
@@ -35,13 +36,13 @@
 					<kbd>R</kbd>
 				</div>
 			</div>
+			<h4><span> J</span> for Cem Yılmaz</h4>
 		</div>
-
 		<div class="hero">
 			
-				
-				<h3>Aykut Elmas</h3>
-				<img src="img/aykut.jpeg">
+
+			<h3>Aykut Elmas</h3>
+			<img src="img/aykut.jpeg">
 			
 			<div class="keys">
 				
@@ -58,13 +59,14 @@
 					<kbd>F</kbd>
 				</div>
 			</div>
+			<h4><span>K</span> for Aykut Elmas</h4>
+
 		</div>
 
 		<div class="hero">
 			<h3>Smileys</h3>
 			<img src="img/smiley.jpg">
 			<div class="keys">
-				
 				<div class="key" data-key="KeyZ">
 					<kbd>Z</kbd>
 				</div>
@@ -78,33 +80,146 @@
 					<kbd>V</kbd>
 				</div>
 			</div>
+			<h4><span>L</span> for Smiley</h4>
+
 		</div>
 
 
-		
+
 	</div>
 
-	<audio data-key="KeyQ" src="sounds/cmYlmz/abime.mp3"></audio>
-	<audio data-key="KeyW" src="sounds/cmYlmz/element.mp3"></audio>
-	<audio data-key="KeyE" src="sounds/cmYlmz/gelecem.mp3"></audio>
-	<audio data-key="KeyR" src="sounds/cmYlmz/sırrıbozdun.mp3"></audio>
-
-	<audio data-key="KeyA" src="sounds/aykutElmas/ebo.mp3"></audio>
-	<audio data-key="KeyS" src="sounds/aykutElmas/ehe.mp3"></audio>
-	<audio data-key="KeyD" src="sounds/aykutElmas/paraVer.mp3"></audio>
-	<audio data-key="KeyF" src="sounds/aykutElmas/yavasLa.mp3"></audio>
-
-	<audio data-key="KeyZ" src="sounds/smiley/1.mp3"></audio>
-	<audio data-key="KeyX" src="sounds/smiley/2.mp3"></audio>
-	<audio data-key="KeyC" src="sounds/smiley/3.mp3"></audio>
-	<audio data-key="KeyV" src="sounds/smiley/4.mp3"></audio>
+	<audio class="cem" src="sounds/cmYlmz/abime.mp3"></audio>
+	<audio class="cem" src="sounds/cmYlmz/element.mp3"></audio>
+	<audio class="cem" src="sounds/cmYlmz/gelecem.mp3"></audio>
+	<audio class="cem" src="sounds/cmYlmz/sırrıbozdun.mp3"></audio>
+	<audio class="aykut" src="sounds/aykutElmas/ebo.mp3"></audio>
+	<audio class="aykut" src="sounds/aykutElmas/ehe.mp3"></audio>
+	<audio class="aykut" src="sounds/aykutElmas/paraVer.mp3"></audio>
+	<audio class="aykut" src="sounds/aykutElmas/yavasLa.mp3"></audio>
+	<audio class="smiley" src="sounds/smiley/1.mp3"></audio>
+	<audio class="smiley" src="sounds/smiley/2.mp3"></audio>
+	<audio class="smiley" src="sounds/smiley/3.mp3"></audio>
+	<audio class="smiley" src="sounds/smiley/4.mp3"></audio>
 
 	<script>
-		window.addEventListener("keydown", playSound);
+		window.addEventListener("keydown", chooseHero);
 
-		function playSound(e){
-			const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
-			if(!audio) return; 
+		function chooseHero(e){
+			let myHero = "";
+
+			if(e.code == "KeyJ"){
+				myHero = document.querySelectorAll(".cem");
+				const myKeys = ["KeyQ", "KeyW", "KeyE", "KeyR"];
+				const l = myHero.length;
+				for (let i=0; i<l; i++){
+					myHero[i].setAttribute("data-key", myKeys[i]);
+				}
+
+				others = document.querySelectorAll(`audio[class="aykut"] , audio[class="smiley"]`);
+				console.log(others);
+
+				const l2 = others.length;
+				for(let i=0; i<l2; i++){
+					others[i].setAttribute("data-key", " ");
+				}
+
+			// Animations when hero is selected
+			myDiv = document.querySelectorAll(".hero");
+			myImage = document.querySelectorAll("img");
+			
+			effect(myDiv, 0);
+			changeImg(0, "cem2.jpg");
+
+
+			
+		}
+		else if(e.code == "KeyK"){
+			myHero = document.querySelectorAll(".aykut");
+			const myKeys = ["KeyA", "KeyS", "KeyD", "KeyF"];
+			const l = myHero.length;
+			for (let i=0; i<l; i++){
+				myHero[i].setAttribute("data-key", myKeys[i]);
+			}
+
+			others = document.querySelectorAll(`audio[class="cem"] , audio[class="smiley"]`);
+			console.log(others);
+			
+			const l2 = others.length;
+			for(let i=0; i<l2; i++){
+				others[i].setAttribute("data-key", " ");
+			}
+
+		// Animations when hero is selected
+		myDiv = document.querySelectorAll(".hero");
+		myImage = document.querySelectorAll("img");
+
+		myImage[1].setAttribute("src", "img/aykut2.jpg");
+
+		effect(myDiv, 1);
+
+	}
+	else if(e.code == "KeyL"){
+		myHero = document.querySelectorAll(".smiley");
+		const myKeys = ["KeyZ", "KeyX", "KeyC", "KeyV"];
+		const l = myHero.length;
+		for (let i=0; i<l; i++){
+			myHero[i].setAttribute("data-key", myKeys[i]);
+		}	
+
+		others = document.querySelectorAll(`audio[class="aykut"] , audio[class="cem"]`);
+		console.log(others);
+
+		const l2 = others.length;
+		for(let i=0; i<l2; i++){
+			others[i].setAttribute("data-key", " ");
+		}
+
+		// Animations when hero is selected
+		myDiv = document.querySelectorAll(".hero");
+		myImage = document.querySelectorAll("img");
+
+		changeImg(2, "smiley2.jpg");
+
+		effect(myDiv, 2);
+
+	}
+	else{
+		playSound(e);
+	}
+
+
+}
+
+// animation funtion
+function effect(myDiv, x){
+
+	for (let i=0; i<myDiv.length; i++){
+		if(i == x){
+			myDiv[i].classList.add("selected"); 
+			myDiv[i].classList.remove("notSelected");
+
+		} 
+		else {
+			myDiv[i].classList.add("notSelected"); 
+			myDiv[i].classList.remove("selected");
+		}
+	}
+}
+
+//image change
+
+function changeImg(index, imgName){
+
+	src = "img/" + imgName;
+	myImage[index].setAttribute("src", src);
+
+}
+
+
+function playSound(e){
+	console.log(e);
+	const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
+	if(!audio) return; 
 		// hepsi birlikte çalıyor??
 		audio.currentTime = 0;
 		audio.play();

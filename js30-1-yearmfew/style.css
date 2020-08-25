@@ -8,12 +8,12 @@ html {
 }
 body {
 
-width:100vw;
- margin: 0;
- background:url("img/jav2.jpg");
- background-repeat:no-repeat;
- background-size:cover;
- background-position:center;
+    width:100vw;
+    margin: 0;
+    background:url("img/jav2.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
 }
 
 
@@ -48,6 +48,19 @@ kbd{
     font-size:30px;
 }
 
+.hero h4 span{
+    font-size:2rem;
+    color:#DE59CE;
+
+}
+.hero h4{
+    color:white;
+    margin:0px;
+    letter-spacing:0.5rem;
+
+}
+
+
 
 
 
@@ -73,6 +86,20 @@ kbd{
  width:30vw;
  background-color:rgb(222, 188, 44, .7);
  color:white;
+ transition:all 0.2s;
+
+}
+
+
+.selected{
+    border:3px solid yellow;
+    width:50vw;
+    height:70vh;
+}
+
+.notSelected{
+    width:20vw;
+    opacity:0.5;
 }
 
 img {
@@ -101,6 +128,8 @@ img {
    justify-content: center;
 }
 
+
+
 .playing{
     transform:scale(1.1);
 
@@ -125,7 +154,10 @@ img {
         width:100%;
         height:25%;
         margin-top:10px;
+
     }
+
+
 
     img {
 
