@@ -4,7 +4,7 @@
 --brightness:100%;
 --contrast:100%;
 --opacity:100%;
---flip: ;
+--flip: 1;
 }
 html body{
 /*	height:100%;*/
@@ -62,9 +62,9 @@ img{
 	brightness(var(--brightness))
 	contrast(var(--contrast))
 	opacity(var(--opacity))
+    ;
   -webkit-transform: var(--flip);
   transform: var(--flip);
-    ;
 }
 
 .container .image{

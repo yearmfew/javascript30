@@ -53,6 +53,8 @@
 
 <script>
 	const inputs = document.querySelectorAll("input");
+	
+	
 	const selects = document.querySelectorAll("select");
 
 	selects.forEach(select => select.addEventListener("change", flip))
@@ -62,6 +64,7 @@
 
 	inputs.forEach(input => input.addEventListener("change", update));
 	inputs.forEach(input => input.addEventListener("update", update));
+
 	function update(){
 		const value = this.value + this.dataset.sizing;
 
@@ -77,6 +80,8 @@
 		document.documentElement.style.setProperty(`--${this.dataset.var}`, value);
 		img.style.setProperty("-webkit-transform", value);
 	}
+
+		
 
 </script>
 </html>
