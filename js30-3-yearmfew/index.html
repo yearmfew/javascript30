@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Manipulation</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div>
+		<h3>Style Your Image</h3>
+	</div>
+	<div class="container">
+		<div class="inputs">
+			<div>
+				<label for="blur">Blur</label>
+				<input type="range" name="blur" min="0" max="25" value="5" data-sizing="px" data-var="blur">
+			</div>
+			<div>
+				<label for="grayscale">Grayscale</label>
+				<input type="range" name="grayscale" min="0" max="200" value="0" data-sizing="%" data-var="grayscale">
+			</div>
+			<div>
+				<label for="brightness">Brightness</label>
+				<input type="range" name="brightness" min="0" max="200" value="100" data-sizing="%" data-var="brightness">
+			</div>
+			<div>
+				<label for="contrast">Contrast</label>
+				<input type="range" name="contrast" min="0" max="200" value="100" data-sizing="%" data-var="contrast">
+			</div>
+			<div>
+				<label for="opacity">Opacity</label>
+				<input type="range" name="opacity" min="0" max="100" value="100" data-sizing="%" data-var="opacity">
+			</div>
+			<div>
+				<label for="flip">Flip</label>	
+				<select name="flip" data-var="transform" data-sizing="">
+					<option value="scaleX(-1)">Flip X</option>
+					<option value="scaleY(-1)">Flip Y</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="image">
+			<img src="harley-davidson.jpg">
+		</div>
+		<div >
+			<a href="#">Upload</a>
+			<a href="#">Download</a>
+		</div>
+	</div>
+
+</body>
+
+
+<script>
+	const inputs = document.querySelectorAll("input");
+	const selects = document.querySelectorAll("select");
+
+	selects.forEach(select => select.addEventListener("change", flip))
+
+
+
+
+	inputs.forEach(input => input.addEventListener("change", update));
+	inputs.forEach(input => input.addEventListener("update", update));
+	function update(){
+		const value = this.value + this.dataset.sizing;
+
+		document.documentElement.style.setProperty(`--${this.dataset.var}`, value);
+	}
+
+	function flip(){
+
+		const value = this.value;
+		console.log(this)
+
+		const img = document.querySelector("img");
+		document.documentElement.style.setProperty(`--${this.dataset.var}`, value);
+		img.style.setProperty("-webkit-transform", value);
+	}
+
+</script>
+</html>
