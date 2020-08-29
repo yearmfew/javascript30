@@ -7,12 +7,13 @@
 <body>
 	<div>
 		<h3>Style Your Image</h3>
+		<button>Return to Original</button>
 	</div>
 	<div class="container">
 		<div class="inputs">
 			<div>
 				<label for="blur">Blur</label>
-				<input type="range" name="blur" min="0" max="25" value="5" data-sizing="px" data-var="blur">
+				<input type="range" name="blur" min="0" max="25" value="0" data-sizing="px" data-var="blur">
 			</div>
 			<div>
 				<label for="grayscale">Grayscale</label>
@@ -33,6 +34,7 @@
 			<div>
 				<label for="flip">Flip</label>	
 				<select name="flip" data-var="transform" data-sizing="">
+					<option disabled selected value>Direction to flip</option>
 					<option value="scaleX(-1)">Flip X</option>
 					<option value="scaleY(-1)">Flip Y</option>
 				</select>
@@ -52,16 +54,18 @@
 
 
 <script>
+	const selects = document.querySelectorAll("select");
+	const button = document.querySelector("button");
+
 	const inputs = document.querySelectorAll("input");
 	
+
+
 	
-	const selects = document.querySelectorAll("select");
 
+
+	button.addEventListener("click", eraseAll);
 	selects.forEach(select => select.addEventListener("change", flip))
-
-
-
-
 	inputs.forEach(input => input.addEventListener("change", update));
 	inputs.forEach(input => input.addEventListener("update", update));
 
@@ -71,6 +75,16 @@
 		document.documentElement.style.setProperty(`--${this.dataset.var}`, value);
 	}
 
+	function saveAll(){
+		let inputName = [];
+
+		inputs.forEach(input => inputName[input.name] = input.value);
+		return inputName;
+	}
+	let values = saveAll();
+
+
+
 	function flip(){
 
 		const value = this.value;
@@ -79,9 +93,23 @@
 		const img = document.querySelector("img");
 		document.documentElement.style.setProperty(`--${this.dataset.var}`, value);
 		img.style.setProperty("-webkit-transform", value);
+
+	}
+	function eraseAll(){
+		console.log(values);
+
+		inputs.forEach(function(input){
+
+			document.documentElement.style.setProperty(`--${input.dataset.var}`, values[input.dataset.var] + input.dataset.sizing);
+			input.value = values[input.dataset.var];
+		});
+		const img = document.querySelector("img");
+		document.documentElement.style.setProperty("--flip", "scaleX(1)");
+		document.documentElement.style.setProperty("--flip", "scaleX(1)");
+		/*img.style.setProperty("-webkit-transform", " ");*/
 	}
 
-		
+
 
 </script>
 </html>
