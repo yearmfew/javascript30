@@ -5,9 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div>
+	<div class="header">
 		<h3>Style Your Image</h3>
-		<button>Return to Original</button>
+		<div class="buttons">
+			<button>Reset Changes</button>
+			<a href="#">Upload</a>
+			<a href="#">Download</a>
+		</div>
 	</div>
 	<div class="container">
 		<div class="inputs">
@@ -41,28 +45,16 @@
 			</div>
 		</div>
 
-		<div class="image">
+		<div class="image">					
 			<img src="harley-davidson.jpg">
 		</div>
-		<div >
-			<a href="#">Upload</a>
-			<a href="#">Download</a>
-		</div>
 	</div>
-
 </body>
-
 
 <script>
 	const selects = document.querySelectorAll("select");
 	const button = document.querySelector("button");
-
 	const inputs = document.querySelectorAll("input");
-	
-
-
-	
-
 
 	button.addEventListener("click", eraseAll);
 	selects.forEach(select => select.addEventListener("change", flip))
@@ -104,11 +96,43 @@
 			input.value = values[input.dataset.var];
 		});
 		const img = document.querySelector("img");
-		document.documentElement.style.setProperty("--flip", "scaleX(1)");
-		document.documentElement.style.setProperty("--flip", "scaleX(1)");
-		/*img.style.setProperty("-webkit-transform", " ");*/
+
+
+		img.style.setProperty("-webkit-transform", "none");
+		const select = document.querySelector("select");
+		select.selectedIndex = 0;
 	}
 
+// Image Upload and Download
+/*
+const uploadInput = document.querySelector('input[type="file"]');
+loadInput.addEventListener("change", upload);
+
+function upload(){
+	if (this.files && this.files[0]) {
+          var img = document.querySelector('img');  // $('img')[0]
+          img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+          let canvas = document.querySelector("canvas");
+          let ctx  = canvas.getContext("2d");
+          ctx.drawImage(img, 10, 10, "100px", "100px");
+          img.onload = imageIsLoaded;
+      }
+  }
+
+  function imageIsLoaded() { 
+  alert(this.src);  // blob url
+  // update width and height ...
+}
+
+const downloadButton = document.querySelector("a");
+downloadButton.addEventListener("click", download);
+
+
+function download () {  
+ var canvas = document.querySelector("canvas");
+    var img2    = canvas.toDataURL("image/png");
+    document.write('<img src="'+img2+'"/>');
+}*/
 
 
 </script>
