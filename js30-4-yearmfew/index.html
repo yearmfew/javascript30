@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yavuz</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="panels">
+		<div class="panel panel1">
+			<p>Sanma şâhım</p>
+			<p>Herkesi sen</p>
+			<p>Sâdıkâne</p>
+			<p>Yâr olur</p>
+		</div>
+		<div class="panel panel2">
+			<p>Herkesi sen</p>
+			<p>Dost mu sandın</p>
+			<p>Belki ol</p>
+			<p>Ağyâr olur</p>
+		</div>
+		<div class="panel panel3">
+			<p>Sâdıkâne</p>
+			<p>Belki ol</p>
+			<p>Bu âlemde</p>
+			<p>Dildâr olur</p>
+		</div>
+		<div class="panel panel4">
+			<p>Yâr olur</p>
+			<p>Ağyâr olur</p>
+			<p>Dildâr olur</p>
+			<p>Serdâr olur</p>
+		</div>
+	
+	</div>
+
+<script>
+	
+	const panels = document.querySelectorAll(".panel");
+
+	panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+
+	function toggleOpen(){
+		this.classList.toggle('open');
+	}
+  
+	panels.forEach(panel => panel.addEventListener('transitionend', writings));
+
+	function writings(e){
+		e.propertyName.includes('flex') ? (this.classList.toggle('open-active')) : "";
+
+	}
+
+
+
+</script>
+
+</body>
+</html>
