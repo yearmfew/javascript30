@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5 Canvas</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<canvas id="draw" width="800" height="800"></canvas>
+
+	<script>
+		const canvas = document.querySelector("#draw");
+		const ctx = canvas.getContext("2d");
+		canvas.width  	= window.innerWidth;
+		canvas.height 	= window.innerHeight;
+		ctx.strokeStyle = "#BADA55";
+		ctx.lineJoin 	= "round";
+		ctx.lineCap 	= "round";
+
+		// ctx.globalCompositeOperation = "multiply";
+		let isDrawing 	= false;
+		let lastX 		= 0;
+		let lastY 		= 0;
+		let hue			= 0;
+		let direction 	= true;
+
+		function draw(e){
+			if (!isDrawing) return; // stop the fn when there are no mouse clicked
+			// hue values are changing in every move then it changes the value in hsl. 
+			// when it comes to 360 it becomes 0.
+			(hue >= 360) ? hue = 0 : hue++;
+			ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+			ctx.beginPath();
+			// start from
+			ctx.moveTo(lastX, lastY);
+			// go to
+			ctx.lineTo(e.offsetX, e.offsetY);
+			ctx.stroke();
+			[lastX, lastY] = [e.offsetX, e.offsetY];
+			// varying the width of the line 
+			(ctx.lineWidth >= 70 || ctx.lineWidth <=1) ? direction = !direction : "";
+			(direction) ? ctx.lineWidth++ : ctx.lineWidth--;  
+		console.log(e);
+		}
+
+		canvas.addEventListener("mousedown", (e) => {
+			isDrawing = true;
+			[lastX, lastY] = [e.offsetX, e.offsetY];
+		});
+		canvas.addEventListener("mousemove", draw);
+
+		canvas.addEventListener("mouseup", () => isDrawing = false);
+		// mouseout =  when mouse is outside of the browser it needs to stop drawing. Otherwise it would go on drawing when mouse come back withoutchecking if it is clicked or not. 
+		canvas.addEventListener("mouseout", () => isDrawing = false);
+
+
+
+	</script>
+</body>
+</html>

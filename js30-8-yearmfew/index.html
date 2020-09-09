@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Very Simple Paint</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="FA/css/font-awesome.min.css">
+</head>
+<body>
+	<div class="panel">
+		<h3>Type & Size</h3>
+		
+		<div class="circles">
+			<button data-size="6" data-type="round" class="square"><i class="fa fa-circle" aria-hidden="true"></i></button>
+			<button data-size="10" data-type="round" class="square"><i class="fa fa-circle" aria-hidden="true"></i></button>
+			<button data-size="15" data-type="round" class="square"><i class="fa fa-circle" aria-hidden="true"></i></button>
+		</div>
+
+		<div class="squares">
+			<button data-size="6" data-type="square" class="square"><i class="fa fa-square" aria-hidden="true"></i></button>
+			<button data-size="10" data-type="square" class="square"><i class="fa fa-square" aria-hidden="true"></i></button>
+			<button data-size="15" data-type="square" class="square"><i class="fa fa-square" aria-hidden="true"></i></button>
+		</div>
+		<div class="colors">
+			<h6>Colors</h6>
+			<div class="buttons">
+				<button data-type="blue" class="color"><i class="fa fa-square" aria-hidden="true"></i></button>
+				<button data-type="yellow" class="color"><i class="fa fa-square" aria-hidden="true"></i></button>
+				<button data-type="red" class="color"><i class="fa fa-square" aria-hidden="true"></i></button>
+				<button data-type="orange" class="color"><i class="fa fa-square" aria-hidden="true"></i></button>
+				<button data-type="mix" class="color">Mix</button>
+			</div>
+		</div>
+	</div>
+		<canvas id="draw"></canvas>
+	<script type="text/javascript" src="custom.js"></script>
+</body>
+</html>
