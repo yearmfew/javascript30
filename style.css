@@ -1,0 +1,40 @@
+*{
+	box-sizing:border-box;
+}
+html, body{
+	width:100vw;
+	height:100vh;
+
+}
+
+body{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+}
+
+.menu{
+	display:flex;
+	flex-direction:column;
+	width:25%;
+
+}
+
+.menu a{
+	text-decoration:none;
+	font-size:20px;
+	border:1px solid white;
+	background-color:blue;
+	color:white;
+	transition:0.7s;
+	padding:20px;
+	text-align:center;
+	width:100%;
+}
+
+.menu a:hover{
+	color:blue;
+	background-color:white;
+
+}
