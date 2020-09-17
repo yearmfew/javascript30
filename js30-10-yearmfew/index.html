@@ -12,6 +12,10 @@
  -->
  <div class="inbox">
   <div class="item">
+    <input id = "selectAll" type="checkbox">
+    <label class="all" for = "selectAll">Select All</label>
+  </div>
+  <div class="item">
     <input id = "c1" type="checkbox">
     <label for ="c1">This is an inbox layout.</label>
   </div>
@@ -49,9 +53,12 @@
   </div>
 </div>
 
+
+
 <script>
   const inputs = document.querySelectorAll(".inbox input[type='checkbox']");
 
+  // To choose all between with ctrl : 
   inputs.forEach(input => input.addEventListener("click", handleCheck));
 
   let lastChecked;
@@ -74,6 +81,18 @@
     }
     lastChecked = this;
   }
+
+  // Select All
+  const selectAll =  document.querySelector("#selectAll");
+  selectAll.addEventListener("click", all);
+    let checked = false;
+
+  function all(e){
+    checked = !checked;
+    inputs.forEach(input => input.checked = checked);
+  }
+
+
 
 </script>
 </body>
