@@ -12,40 +12,40 @@
  -->
  <div class="inbox">
   <div class="item">
-    <input type="checkbox">
-    <p>This is an inbox layout.</p>
+    <input id = "c1" type="checkbox">
+    <label for ="c1">This is an inbox layout.</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Check one item</p>
+    <input id="c2" type="checkbox">
+    <label for ="c2">Check one item</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Hold down your Shift key</p>
+    <input id="c3" type="checkbox">
+    <label for ="c3">Hold down your CTRL key</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Check a lower item</p>
+    <input id="c4" type="checkbox">
+    <label for ="c4">Check a lower item</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Everything in between should also be set to checked</p>
+    <input id="c5" type="checkbox">
+    <label for ="c5">Everything in between should also be set to checked</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Try to do it without any libraries</p>
+    <input id="c6" type="checkbox">
+    <label for ="c6">Try to do it without any libraries</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Just regular JavaScript</p>
+    <input id="c7" type="checkbox">
+    <label for ="c7">Just regular JavaScript</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Good Luck!</p>
+    <input id="c8" type="checkbox">
+    <label for ="c8">Good Luck!</label>
   </div>
   <div class="item">
-    <input type="checkbox">
-    <p>Don't forget to tweet your result!</p>
+    <input id="c9" type="checkbox">
+    <label for ="c9">Don't forget to tweet your result!</label>
   </div>
 </div>
 
@@ -60,14 +60,13 @@
     let inBetween = false;
     // check if shift key down
     // check if checkbox is checked
-    if (e.shiftKey && this.checked){
+    if (e.ctrlKey && this.checked){
       // loop over every single checkbox
       inputs.forEach(input => {
         if (input === this || input === lastChecked) {
           inBetween = !inBetween;
         }
         if (inBetween){
-        
           input.checked = true;
         }
       });
