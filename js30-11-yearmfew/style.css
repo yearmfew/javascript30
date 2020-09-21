@@ -14,15 +14,22 @@ body {
 }
 .player {
 	max-width: 100vw;
-	width:750px;
+	width:900px;
 	height:40vh;
 	border:5px solid rgba(0,0,0,0.2);
 	box-shadow:0 0 20px rgba(0,0,0,0.2);
 	position: relative;
 	overflow:hidden;
+	background-color:black;
+	display: flex;
+	align-items:center;
 
 }
 
+.player > * :hover {
+	color:#bada55;
+	cursor:pointer;
+}
 .playerControls .play{
 	padding:0;
 	width:8%;
@@ -35,17 +42,13 @@ body {
 	background:none;
 	border:none;
 	line-height:1;
-	font-size:2.5rem;
+	font-size:1.7rem;
 	text-align:center;
 	cursor:pointer;
 	color:white;
 }
-.playerButton:focus {
+.play :focus {
 	border-color: #ffc600;
-}
-.playerButton:hover {
-	color:#bada55;
-	font-size:2.5rem;
 }
 
 .playerSlider {
@@ -73,10 +76,6 @@ body {
 
 .player:hover .progress {
 	height:15px;
-}
-
-.playerControls > * {
-/*	flex: 1;*/
 }
 
 .progress {
@@ -113,10 +112,7 @@ input[type=range]:focus {
 	align-items: center;
 	transition:0.5s;
 }
-.volume:hover{
-	color:#bada55;
-	cursor:pointer;
-}
+
 /* Webkit is for chrome, safari and opera */
 input[type=range]::-webkit-slider-runnable-track {
 	width:100%;
@@ -165,12 +161,8 @@ input[type=range]::-moz-range-thumb {
 	color:white;
 	padding:0;
 	margin:10px;
-	font-size:2rem;
+	font-size:1.7rem;
 	transition:0.5s;
-}
-.videoSpeed span:hover{
-	cursor:pointer;
-	color:#bada55;
 }
 .videoSpeed {
 	display:flex;
@@ -182,13 +174,13 @@ input[type=range]::-moz-range-thumb {
 
 /* This css is only applied when fullscreen is active. */
 .player:fullscreen {
-  max-width: none;
-  width: 100%;
+	max-width: none;
+	width: 100%;
 }
 
 .player:-webkit-full-screen {
-  max-width: none;
-  width: 100%;
+	max-width: none;
+	width: 100%;
 }
 
 .fullscreen{
@@ -200,9 +192,10 @@ input[type=range]::-moz-range-thumb {
 	font-size:2rem;
 }
 
-.fullscreen:hover{
-	cursor:pointer;
-}
 .time{
 	color:white;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	font-size:1.7rem;
 }

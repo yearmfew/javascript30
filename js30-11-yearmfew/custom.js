@@ -14,10 +14,13 @@ const time = player.querySelector(".time");
 
 // write current time inside html
 function showTime(){
-	let currentSeconds = ~~(video.currentTime);
-	let minutes = ~~(currentSeconds / 60);
-	
-	let timeToShow = minutes + " : " + seconds;
+	let seconds = ~~(video.currentTime);
+	let minutes = ~~(seconds / 60);
+	let secondsToShow = 0, minutesToShow = 0;
+	(seconds / 60 >= 1) ? secondsToShow = seconds - ~~(seconds/60)*60 : secondsToShow = seconds;
+	(secondsToShow < 10) ? secondsToShow = "0" + secondsToShow : "";
+	(minutes < 10) ? minutesToShow = "0" + minutes : minutesToShow = minutes; 
+	let timeToShow = minutesToShow + " : " + secondsToShow;
 	time.innerHTML = timeToShow;
 
 }
@@ -71,14 +74,16 @@ function mute(){
 }
 
 function makeFull(){
-	isFullscreen = !isFullscreen;
 	if (isFullscreen){
-		player.style.width = "750px";
+		player.style.width = "900px";
 		player.style.height = "40vh";
 	} else{
 		player.style.width = "100vw";
 		player.style.height = "100vh";
+		video.style.height  = "80vh";
+		video.style.width  = "100vw";
 	}
+		isFullscreen = !isFullscreen;
 }
 // Event Listeners
 
