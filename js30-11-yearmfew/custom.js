@@ -118,5 +118,6 @@ volumeButton.addEventListener("click", mute);
 
 let isFullscreen = false;
 fullscreen.addEventListener("click", makeFull);
+video.addEventListener("dblclick", makeFull);
 
 video.addEventListener("timeupdate", showTime);
