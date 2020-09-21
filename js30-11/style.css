@@ -20,6 +20,7 @@ body {
 
 .player {
   max-width: 750px;
+  width:;
   border: 5px solid rgba(0,0,0,0.2);
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
   position: relative;
@@ -159,4 +160,5 @@ input[type=range]::-moz-range-thumb {
   border-radius: 50px;
   background: #ffc600;
   cursor: pointer;
+
 }

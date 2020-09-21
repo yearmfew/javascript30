@@ -54,10 +54,10 @@ ctx.beginPath();
 	ctx.moveTo(lastX, lastY);
 
 	//go to
-	ctx.lineTo(e.pageX - 40, e.pageY);
+	ctx.lineTo(e.offsetX, e.offsetY);
 	ctx.stroke();
 
-	[lastX, lastY] = [e.pageX - 40, e.pageY];
+	[lastX, lastY] = [e.offsetX, e.offsetY];
 
 	// direction ile büyüklük değişimi ??
 	// panele de ekleme yap ?  şimdilik yapmıyorum
@@ -66,7 +66,7 @@ ctx.beginPath();
 canvas.addEventListener("mousedown", (e)=> {
 	console.log(e);
 	isDrawing = true;
-	[lastX, lastY] = [e.pageX - 40, e.pageY];
+	[lastX, lastY] = [e.offsetX, e.offsetY];
 });
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", () => isDrawing = false);
