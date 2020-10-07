@@ -79,3 +79,26 @@ h2 {
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+.hide{
+  display:none;
+}
+
+.buttonGroup{
+  margin:2rem 0;
+  display:flex;
+  justify-content: space-around;
+}
+.buttonGroup .button{
+
+  padding:1rem;
+  font-size:1.2rem;
+  background-color:#bada55;
+  color:white;
+}
+
+.buttonGroup .button:hover{
+    border:1px solid #bada55;
+    background-color:rgba(255, 255, 255, 0.95);
+    color:#bada55;
+}
