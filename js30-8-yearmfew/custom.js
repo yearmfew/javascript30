@@ -44,12 +44,12 @@ function sizeAndType(){
 		console.log(ctx.strokeStyle);
 		if (mix == "mix"){
 			console.log("hellosss");
-	// renk strokeStyle dan ayarlanacak
-	(hue>= 360) ? hue = 0 : hue ++;
-	ctx.strokeStyle = `hsl(${hue}, 100%, 70%)`; 
-};
+		// renk strokeStyle dan ayarlanacak
+		(hue>= 360) ? hue = 0 : hue ++;
+		ctx.strokeStyle = `hsl(${hue}, 100%, 70%)`; 
+		};
 
-ctx.beginPath();
+	ctx.beginPath();
 	// start from 
 	ctx.moveTo(lastX, lastY);
 
@@ -61,10 +61,12 @@ ctx.beginPath();
 
 	// direction ile büyüklük değişimi ??
 	// panele de ekleme yap ?  şimdilik yapmıyorum
+	console.log(lastX, lastY);
+
 }
 
 canvas.addEventListener("mousedown", (e)=> {
-	console.log(e);
+console.log(e.view);
 	isDrawing = true;
 	[lastX, lastY] = [e.offsetX, e.offsetY];
 });
