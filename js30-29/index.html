@@ -5,50 +5,23 @@
   <title>Countdown Timer</title>
   <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" type="text/css" href="../assets/FA/css/font-awesome.css">
 </head>
 <body>
   <div class="timer">
-
-    <form name="customForm" id="custom">
-      <div>
-        <label for="hours">Hours</label>
-        <input type="text" id="hours" name="hours" placeholder="00">
-      </div>
-      <div>
-        <label for="hours">Minutes</label>
-        <input type="text" id="minutes" name="minutes" placeholder="00">
-      </div>
-      <div>
-        <label for="hours">Seconds</label>
-        <input type="text" id="seconds" name="seconds" placeholder="00">
-      </div>
-
-    </form>
-    <div class="start">
-      <button><i class="fa fa-play" aria-hidden="true"></i> Start</button>
-      <!-- <button><i class="fa fa-pause" aria-hidden="true"></i> Pause</button> -->
-      <button><i class="fa fa-stop" aria-hidden="true"></i> Stop</button>
+    <div class="timer__controls">
+      <button data-time="20" class="timer__button">20 Secs</button>
+      <button data-time="300" class="timer__button">Work 5</button>
+      <button data-time="900" class="timer__button">Quick 15</button>
+      <button data-time="1200" class="timer__button">Snack 20</button>
+      <button data-time="3600" class="timer__button">Lunch Break</button>
+      <form name="customForm" id="custom">
+        <input type="text" name="minutes" placeholder="Enter Minutes">
+      </form>
     </div>
     <div class="display">
-      <h1 class="display__time-left">00:00</h1>
+      <h1 class="display__time-left"></h1>
       <p class="display__end-time"></p>
     </div>
-    <div class="timer__controls">
-      <button data-time="15" class="timer__button">15 Secs</button>
-      <button data-time="30" class="timer__button">30 Secs</button>
-      <button data-time="45" class="timer__button">45 Secs</button>
-      <button data-time="60" class="timer__button">1 Minutes</button>
-      <button data-time="120" class="timer__button">2 Minutes</button>
-      <button data-time="180" class="timer__button">3 Minutes</button>
-      <button data-time="240" class="timer__button">4 Minutes</button>
-      <button data-time="300" class="timer__button">5 Minutes</button>
-      <button data-time="600" class="timer__button">10 Minutes</button>
-      <button data-time="900" class="timer__button">15 Minutes</button>
-      <button data-time="1200" class="timer__button">20 Minutes</button>
-      <button data-time="3600" class="timer__button">1 Hour</button>
-    </div>
-
   </div>
 
   <script src="scripts.js"></script>

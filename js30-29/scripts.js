@@ -3,7 +3,8 @@ let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const buttons = document.querySelectorAll('[data-time]');
-const input = document.customForm;
+
+const input = document.customForm.input;
 
 
 // Functions
@@ -52,6 +53,7 @@ function startTimer(){
 
 function inputStart(e){
 	e.preventDefault();
+	console.log(e);
 	const mins = this.minutes.value;
 	timer(mins * 60);
 	this.reset();

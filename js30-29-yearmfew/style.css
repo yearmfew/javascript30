@@ -13,12 +13,14 @@ body {
   margin: 0;
   text-align: center;
   font-family: 'Inconsolata', monospace;
+
+
 }
 
 .display__time-left {
   font-weight: 100;
-  font-size: 20rem;
-  margin: 0;
+  font-size: 10rem;
+  margin:0;
   color: white;
   text-shadow: 4px 4px 0 rgba(0,0,0,0.05);
 }
@@ -30,38 +32,77 @@ body {
 }
 
 .timer__controls {
-  display: flex;
+  display: grid;
+  grid-template-rows: repeat(4 1fr);
+  grid-template-columns:repeat(3, 1fr); 
+  grid-gap:1.5rem;
+  padding:1.5rem;
 }
 
-.timer__controls > * {
-  flex: 1;
-}
-
-.timer__controls form {
-  flex: 1;
-  display: flex;
-}
-
-.timer__controls input {
-  flex: 1;
-  border: 0;
-  padding: 2rem;
-}
 
 .timer__button {
   background: none;
   border: 0;
   cursor: pointer;
   color: white;
-  font-size: 2rem;
+  font-size: 4rem;
   text-transform: uppercase;
   background: rgba(0,0,0,0.1);
   border-bottom: 3px solid rgba(0,0,0,0.2);
   border-right: 1px solid rgba(0,0,0,0.2);
-  padding: 1rem;
+  padding: 2rem;
   font-family: 'Inconsolata', monospace;
 }
+form {
+  display: flex; 
+  grid-gap:1rem;
+  justify-content:space-around;
+  align-items:center;
+  width:30%;
+  margin:auto;
 
+}
+form div{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-around;
+  width:100px;
+  height:100px;
+}
+form input {
+  width:100%;
+  border: 0;
+  padding: 1rem;
+  text-align:center;
+  font-size:2rem;
+  border-radius:45px;
+}
+
+form label{
+  font-size:2rem;
+  color:white;
+}
+.controlButtons{
+  margin:2rem;
+}
+.controlButtons button{
+  padding:1rem;
+  color:white;
+  background-color:#bada55;
+  border-bottom: 3px solid rgba(0,0,0,0.2);
+  border-right: 1px solid rgba(0,0,0,0.2);
+  border-radius:5px;
+}
+
+.controlButtons button:hover{ 
+  background:#bdf21f;
+  cursor:pointer;
+}
+.controlButtons button:focus{
+  outline:0;
+
+}
 .timer__button:hover,
 .timer__button:focus {
   background: rgba(0,0,0,0.2);
