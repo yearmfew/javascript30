@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>My Projects</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 	<div class="container">
 		<h1>
-			Here is my 	
+			Here is my
 			<span>P</span>
 			<span>R</span>
 			<span>O</span>
@@ -18,8 +20,8 @@
 			<span>S</span>
 		</h1>
 
-		<div class="menu">	
-			<!-- <a href="js30-1-yearmfew/index.html">Super Heros</a> -->
+		<div class="menu">
+			<a href="js30-1-yearmfew/index.html">Super Heros</a>
 			<a href="js30-2/index.html">Hour</a>
 			<a href="js30-3-yearmfew/index.html">Play with image</a>
 			<a href="js30-4-yearmfew/index.html">Yavuz</a>
@@ -37,12 +39,12 @@
 		letters.forEach(letter => letter.addEventListener("mouseout", changeColorBack));
 
 
-		function changeColor(){
+		function changeColor() {
 			let hue = (Math.random() * (358 - 0));
 			this.style.color = `hsl(${hue}, 94%, 55%)`;
 			this.classList.add("shadow");
 		}
-		function changeColorBack(){
+		function changeColorBack() {
 			this.style.color = "blue";
 			this.classList.remove("shadow");
 
@@ -50,4 +52,5 @@
 
 	</script>
 </body>
+
 </html>
