@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Cities</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<form class="search-form">
+		<input type="text" class="search" placeholder="City or State">
+		<ul class="suggestions">
+			<li>Filter for a city</li>
+			<li>or a state</li>
+		</ul>
+	</form>
+
+	<div class="results">
+		<h3>Close Cities</h3>
+		<ul class="close">
+
+		</ul>
+	</div>
+
+	<script>
+
+		const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+		const cities = [];
+
+		fetch(endpoint)
+		.then(blob => blob.json())
+		.then(data => cities.push(...data))
+
+
+		function findMatches(wordToMatch, cities){
+			return cities.filter(place => {
+				const regex = new RegExp(wordToMatch, 'gi');
+				return place.city.match(regex) || place.state.match(regex)
+			});
+		}
+
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		}
+
+		function displayMatches(){
+
+			const matchArray = findMatches(this.value, cities);
+
+
+			const html = matchArray.map(place => {
+
+      // Styling start
+      const regex = new RegExp(this.value, 'gi');
+
+      const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+
+      const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+      // styling end
+      
+      return `
+      <li>
+      <span class="name">${cityName}, ${stateName}</span>
+      <span class="population">${numberWithCommas(place.population)}</span>
+      </li>
+      `
+  }).join('');
+			suggestions.innerHTML = html;
+
+		}
+
+		const searchInput = document.querySelector('.search');
+		const suggestions = document.querySelector('.suggestions');
+
+		searchInput.addEventListener('change', displayMatches);
+		searchInput.addEventListener('keyup', displayMatches);
+
+		searchInput.addEventListener('change', findNear);
+		searchInput.addEventListener('keyup', findNear);
+		
+
+		function findNear(){
+			const close = document.querySelector(".close");
+			close.innerHTML = " ";
+
+			const city = findMatches(this.value, cities);
+			const lat = city[0].latitude;
+			const long = city[0].longitude;
+
+			const latMax 	= lat + 5;
+			const latMin 	= lat - 5;
+			const longMax 	= long + 5;
+			const longMin 	= long - 5;
+
+			return cities.filter(place => {
+				
+				
+				if (place.latitude <= latMax & place.latitude >= latMin & place.longitude <= longMax & place.longitude >= longMin )
+				{
+					
+					displayClose(place);
+				}
+
+			});
+
+		}
+
+		function displayClose(place){
+			const close = document.querySelector(".close");
+
+
+
+			const cityName = place.city;
+			const stateName = place.state;
+
+			const listItemForCity = document.createElement("LI");
+			listItemForCity.innerHTML = "City Name: " + cityName;
+			close.appendChild(listItemForCity);
+			
+			const listItemForState = document.createElement("LI");
+			listItemForState.classList.add("state");
+			listItemForState.innerHTML = "State Name: " + stateName;
+			close.appendChild(listItemForState);
+		}
+
+
+
+
+	</script>
+
+
+
+</body>
+</html>

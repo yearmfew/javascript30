@@ -1,0 +1,201 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	margin:0;
+	padding:0;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	min-height:100vh;
+}
+.player {
+	max-width: 100vw;
+	width:900px;
+	height:40vh;
+	border:5px solid rgba(0,0,0,0.2);
+	box-shadow:0 0 20px rgba(0,0,0,0.2);
+	position: relative;
+	overflow:hidden;
+	background-color:black;
+	display: flex;
+	align-items:center;
+
+}
+
+.player > * :hover {
+	color:#bada55;
+	cursor:pointer;
+}
+.playerControls .play{
+	padding:0;
+	width:8%;
+
+}
+.playerVideo {
+	width:100%;
+}
+.playerButton {
+	background:none;
+	border:none;
+	line-height:1;
+	font-size:1.7rem;
+	text-align:center;
+	cursor:pointer;
+	color:white;
+}
+.play :focus {
+	border-color: #ffc600;
+}
+
+.playerSlider {
+	width:10px;
+	height:30px;
+	display:none;
+}
+
+.playerControls {
+	display:flex;
+	position:absolute;
+	bottom:0;
+	width:100%;
+	transform:translateY(100%) translateY(-5px);
+	transition: all .3s;
+	flex-wrap:wrap;
+	background:rgba(0,0,0,0.1);
+	height:10vh;
+	padding:0 0 10px 0;
+	justify-content: space-between;
+}
+.player:hover .playerControls {
+	transform: translateY(0);
+}
+
+.player:hover .progress {
+	height:15px;
+}
+
+.progress {
+	flex: 10;
+	position: relative;
+	display: flex;
+	flex-basis: 100%;
+	height: 5px;
+	transition: height 0.3s;
+	background: rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+
+.progressFilled {
+	width: 50%;
+	background: #ffc600;
+	flex: 0;
+	flex-basis: 0%;
+}
+
+input[type=range] {
+	-webkit-appearance:none;
+	background:transparent;
+	width:100%;
+	margin:0 5px;
+}
+input[type=range]:focus {
+	outline:none;
+}
+.volume{
+	color:white;
+	display:flex;
+	width:5%;
+	align-items: center;
+	transition:0.5s;
+}
+
+/* Webkit is for chrome, safari and opera */
+input[type=range]::-webkit-slider-runnable-track {
+	width:100%;
+	height:8.4px;
+	cursor:pointer;
+	box-shadow:1px 1px 1px rgba(0,0,0,0) 0 0 1px rgba(13, 13, 13, 0);
+	background:rgba(255, 255, 255, 0.8);
+	border-radius:1.3px;
+	border:0.2px solid rgba(1, 1, 1, 0);
+
+}
+input[type=range]::-webkit-slider-thumb {
+	height:15px;
+	width:15px;
+	border-radius:50px;
+	background:#ffc600;
+	cursor:pointer;
+	-webkit-appearance:none;
+	margin-top:-3.5px;
+	box-shadow:0 0 2px rgba(0,0,0,0.2);
+}
+input[type=range]:focus::-webkit-slider-runnable-track{
+	background:rgba(0,0,0,0.5);
+
+}
+/* moz is for firefox */
+input[type=range]::-moz-range-track {
+	width: 100%;
+	height: 8.4px;
+	cursor: pointer;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
+	background: #ffffff;
+	border-radius: 1.3px;
+	border: 0.2px solid rgba(1, 1, 1, 0);
+}
+
+input[type=range]::-moz-range-thumb {
+	box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
+	height: 15px;
+	width: 15px;
+	border-radius: 50px;
+	background: #ffc600;
+	cursor: pointer;
+}
+.videoSpeed span{
+	color:white;
+	padding:0;
+	margin:10px;
+	font-size:1.7rem;
+	transition:0.5s;
+}
+.videoSpeed {
+	display:flex;
+	align-items:center;
+	justify-content:space-around;
+	margin:0;
+}
+
+
+/* This css is only applied when fullscreen is active. */
+.player:fullscreen {
+	max-width: none;
+	width: 100%;
+}
+
+.player:-webkit-full-screen {
+	max-width: none;
+	width: 100%;
+}
+
+.fullscreen{
+	color:white;
+	display:flex;
+	align-items:center;
+	padding:0;
+	margin-right:10px;
+	font-size:2rem;
+}
+
+.time{
+	color:white;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	font-size:1.7rem;
+}

@@ -1,0 +1,106 @@
+   html {
+   	box-sizing: border-box;
+   	background: #ffc600;
+   	font-family: 'helvetica neue';
+   	font-size: 20px;
+   	font-weight: 200;
+   }
+
+   body {
+   	margin: 0;
+   }
+
+   *, *:before, *:after {
+   	box-sizing: inherit;
+   }
+
+
+   p{
+   	text-transform: uppercase;
+   	font-family: 'Amatic SC', cursive;
+   	text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+   	font-size:2em;
+   }
+
+
+
+
+   .panels{
+   	min-height: 100vh;
+   	overflow: hidden;
+   	display:flex;
+   }
+
+
+   .panel{
+   	text-align:center;
+   	display:flex;
+   	flex-direction:column;
+   	align-items:center;
+   	justify-content: space-between;
+   	color:white;
+   	box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+   	transition: 
+   	font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+   	flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+   	background 0.2s;
+   	min-height:100vh;
+   	flex:1;
+
+
+   }
+    /* Flex Children */
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      display:flex;
+      flex:1;
+      justify-content: center;
+      align-items:center;
+
+    }
+   .panel1{
+   	background:url("img/yavuzSultanSelim.jpg");
+   	background-size:cover;
+   	background-repeat:no-repeat;
+   	background-position:center;
+
+   }
+
+   .panel2{
+   	background:url("img/tugra.jpg");
+   	background-size:cover;
+   	background-repeat:no-repeat;
+   	background-position:center;
+   }
+
+
+   .panel3{
+   	background:url("img/satranc.jpg");
+   	background-size:cover;
+   	background-repeat:no-repeat;
+   	background-position:center;
+   }
+
+
+   .panel4{
+   	background:url("img/sah_ismail.jpeg");
+   	background-size:cover;
+   	background-repeat:no-repeat;
+   	background-position:center;
+   }
+
+   .panel > *:first-child {transform: translateY(-300%);}
+
+   .panel > *:nth-child(3) { transform: translateY(1000%); }
+   .panel > *:last-child { transform: translateY(400%); }
+
+  .panel.open {
+   	flex:5;
+   }
+
+   .panel.open-active > *:first-child { transform: translateY(0); }
+
+   .panel.open-active > *:nth-child(3) { transform: translateY(0); }
+   .panel.open-active > *:last-child { transform: translateY(0); }

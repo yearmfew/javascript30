@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>My Projects</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1>
+			Here is my
+			<span>P</span>
+			<span>R</span>
+			<span>O</span>
+			<span>J</span>
+			<span>E</span>
+			<span>C</span>
+			<span>T</span>
+			<span>S</span>
+		</h1>
+
+		<div class="menu">
+			<a href="js30-1-yearmfew/index.html">Super Heros</a>
+			<a href="js30-2/index.html">Hour</a>
+			<a href="js30-3-yearmfew/index.html">Play with image</a>
+			<a href="js30-4-yearmfew/index.html">Yavuz</a>
+			<a href="js30-6-yearmfew/index.html">Filter</a>
+			<a href="js30-10-yearmfew/index.html">Checkboxes</a>
+			<a href="js30-11-yearmfew/index.html">Video Player</a>
+			<a href="js30-22-yearmfew/index.html">Article with a live dictionary</a>
+		</div>
+	</div>
+
+	<script>
+		const letters = document.querySelectorAll("span");
+
+		letters.forEach(letter => letter.addEventListener("mouseover", changeColor));
+		letters.forEach(letter => letter.addEventListener("mouseout", changeColorBack));
+
+
+		function changeColor() {
+			let hue = (Math.random() * (358 - 0));
+			this.style.color = `hsl(${hue}, 94%, 55%)`;
+			this.classList.add("shadow");
+		}
+		function changeColorBack() {
+			this.style.color = "blue";
+			this.classList.remove("shadow");
+
+		}
+
+	</script>
+</body>
+
+</html>
