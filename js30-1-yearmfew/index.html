@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Hero Sounds</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -7,55 +8,56 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+
 <body>
 	<div class="title">
 
-		<h1>Choose Your Hero 
+		<h1>Choose Your Hero
 		</h1>
 		<span><i>and make him talk...</i></span>
 
 	</div>
 
-	<div class="heroes" >
+	<div class="heroes">
 		<div class="hero">
 
 			<h3>Cem Yılmaz</h3>
 			<img src="img/cem.jpg">
 			<div class="keys">
-				
-				<div class="key" data-key="KeyQ">
+
+				<div class="key" data-key="q">
 					<kbd>Q</kbd>
 				</div>
-				<div class="key" data-key="KeyW">
+				<div class="key" data-key="w">
 					<kbd>W</kbd>
 				</div>
-				<div class="key" data-key="KeyE">
+				<div class="key" data-key="e">
 					<kbd>E</kbd>
 				</div>
-				<div class="key" data-key="KeyR">
+				<div class="key" data-key="r">
 					<kbd>R</kbd>
 				</div>
 			</div>
 			<h4><span> J</span> for Cem Yılmaz</h4>
 		</div>
 		<div class="hero">
-			
+
 
 			<h3>Aykut Elmas</h3>
 			<img src="img/aykut.jpeg">
-			
+
 			<div class="keys">
-				
-				<div class="key" data-key="KeyA">
+
+				<div class="key" data-key="a">
 					<kbd>A</kbd>
 				</div>
-				<div class="key" data-key="KeyS">
+				<div class="key" data-key="s">
 					<kbd>S</kbd>
 				</div>
-				<div class="key" data-key="KeyD">
-					<kbd>D</kbd>
+				<div class="key" data-key="d">
+					<kbd>D</kbd>s
 				</div>
-				<div class="key" data-key="KeyF">
+				<div class="key" data-key="f">
 					<kbd>F</kbd>
 				</div>
 			</div>
@@ -67,16 +69,16 @@
 			<h3>Smileys</h3>
 			<img src="img/smiley.jpg">
 			<div class="keys">
-				<div class="key" data-key="KeyZ">
+				<div class="key" data-key="z">
 					<kbd>Z</kbd>
 				</div>
-				<div class="key" data-key="KeyX">
+				<div class="key" data-key="x">
 					<kbd>X</kbd>
 				</div>
-				<div class="key" data-key="KeyC">
+				<div class="key" data-key="c">
 					<kbd>C</kbd>
 				</div>
-				<div class="key" data-key="KeyV">
+				<div class="key" data-key="v">
 					<kbd>V</kbd>
 				</div>
 			</div>
@@ -104,14 +106,14 @@
 	<script>
 		window.addEventListener("keydown", chooseHero);
 
-		function chooseHero(e){
+		function chooseHero(e) {
 			let myHero = "";
 
-			if(e.code == "KeyJ"){
+			if (e.code == "j") {
 				myHero = document.querySelectorAll(".cem");
-				const myKeys = ["KeyQ", "KeyW", "KeyE", "KeyR"];
+				const myKeys = ["q", "w", "e", "r"];
 				const l = myHero.length;
-				for (let i=0; i<l; i++){
+				for (let i = 0; i < l; i++) {
 					myHero[i].setAttribute("data-key", myKeys[i]);
 				}
 
@@ -119,131 +121,131 @@
 				console.log(others);
 
 				const l2 = others.length;
-				for(let i=0; i<l2; i++){
+				for (let i = 0; i < l2; i++) {
 					others[i].setAttribute("data-key", " ");
 				}
 
-			// Animations when hero is selected
-			myDiv = document.querySelectorAll(".hero");
-			myImage = document.querySelectorAll("img");
-			
-			effect(myDiv, 0);
-			changeImg(0, "cem2.jpg");
+				// Animations when hero is selected
+				myDiv = document.querySelectorAll(".hero");
+				myImage = document.querySelectorAll("img");
+
+				effect(myDiv, 0);
+				changeImg(0, "cem2.jpg");
 
 
-			
-		}
-		else if(e.code == "KeyK"){
-			myHero = document.querySelectorAll(".aykut");
-			const myKeys = ["KeyA", "KeyS", "KeyD", "KeyF"];
-			const l = myHero.length;
-			for (let i=0; i<l; i++){
-				myHero[i].setAttribute("data-key", myKeys[i]);
+
+			}
+			else if (e.code == "KeyK") {
+				myHero = document.querySelectorAll(".aykut");
+				const myKeys = ["a", "a", "d", "f"];
+				const l = myHero.length;
+				for (let i = 0; i < l; i++) {
+					myHero[i].setAttribute("data-key", myKeys[i]);
+				}
+
+				others = document.querySelectorAll(`audio[class="cem"] , audio[class="smiley"]`);
+				console.log(others);
+
+				const l2 = others.length;
+				for (let i = 0; i < l2; i++) {
+					others[i].setAttribute("data-key", " ");
+				}
+
+				// Animations when hero is selected
+				myDiv = document.querySelectorAll(".hero");
+				myImage = document.querySelectorAll("img");
+
+				myImage[1].setAttribute("src", "img/aykut2.jpg");
+
+				effect(myDiv, 1);
+
+			}
+			else if (e.code == "KeyL") {
+				myHero = document.querySelectorAll(".smiley");
+				const myKeys = ["z", "x", "c", "v"];
+				const l = myHero.length;
+				for (let i = 0; i < l; i++) {
+					myHero[i].setAttribute("data-key", myKeys[i]);
+				}
+
+				others = document.querySelectorAll(`audio[class="aykut"] , audio[class="cem"]`);
+				console.log(others);
+
+				const l2 = others.length;
+				for (let i = 0; i < l2; i++) {
+					others[i].setAttribute("data-key", " ");
+				}
+
+				// Animations when hero is selected
+				myDiv = document.querySelectorAll(".hero");
+				myImage = document.querySelectorAll("img");
+
+				changeImg(2, "smiley2.jpg");
+
+				effect(myDiv, 2);
+
+			}
+			else {
+				playSound(e);
 			}
 
-			others = document.querySelectorAll(`audio[class="cem"] , audio[class="smiley"]`);
-			console.log(others);
-			
-			const l2 = others.length;
-			for(let i=0; i<l2; i++){
-				others[i].setAttribute("data-key", " ");
+
+		}
+
+		// animation funtion
+		function effect(myDiv, x) {
+
+			for (let i = 0; i < myDiv.length; i++) {
+				if (i == x) {
+					myDiv[i].classList.add("selected");
+					myDiv[i].classList.remove("notSelected");
+
+				}
+				else {
+					myDiv[i].classList.add("notSelected");
+					myDiv[i].classList.remove("selected");
+				}
 			}
-
-		// Animations when hero is selected
-		myDiv = document.querySelectorAll(".hero");
-		myImage = document.querySelectorAll("img");
-
-		myImage[1].setAttribute("src", "img/aykut2.jpg");
-
-		effect(myDiv, 1);
-
-	}
-	else if(e.code == "KeyL"){
-		myHero = document.querySelectorAll(".smiley");
-		const myKeys = ["KeyZ", "KeyX", "KeyC", "KeyV"];
-		const l = myHero.length;
-		for (let i=0; i<l; i++){
-			myHero[i].setAttribute("data-key", myKeys[i]);
-		}	
-
-		others = document.querySelectorAll(`audio[class="aykut"] , audio[class="cem"]`);
-		console.log(others);
-
-		const l2 = others.length;
-		for(let i=0; i<l2; i++){
-			others[i].setAttribute("data-key", " ");
 		}
 
-		// Animations when hero is selected
-		myDiv = document.querySelectorAll(".hero");
-		myImage = document.querySelectorAll("img");
+		//image change
 
-		changeImg(2, "smiley2.jpg");
+		function changeImg(index, imgName) {
 
-		effect(myDiv, 2);
+			src = "img/" + imgName;
+			myImage[index].setAttribute("src", src);
 
-	}
-	else{
-		playSound(e);
-	}
-
-
-}
-
-// animation funtion
-function effect(myDiv, x){
-
-	for (let i=0; i<myDiv.length; i++){
-		if(i == x){
-			myDiv[i].classList.add("selected"); 
-			myDiv[i].classList.remove("notSelected");
-
-		} 
-		else {
-			myDiv[i].classList.add("notSelected"); 
-			myDiv[i].classList.remove("selected");
 		}
-	}
-}
-
-//image change
-
-function changeImg(index, imgName){
-
-	src = "img/" + imgName;
-	myImage[index].setAttribute("src", src);
-
-}
 
 
-function playSound(e){
-	console.log(e);
-	const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
-	if(!audio) return; 
-		// hepsi birlikte çalıyor??
-		audio.currentTime = 0;
-		audio.play();
+		function playSound(e) {
+			const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
+			if (!audio) return;
+			// hepsi birlikte çalıyor??
+			audio.currentTime = 0;
+			audio.play();
 
-		const key = document.querySelector(`.key[data-key = "${e.code}"]`);
-		key.classList.add("playing");
-	}
+			const key = document.querySelector(`.key[data-key = "${e.code}"]`);
+			key.classList.add("playing");
+		}
 
 
 
-	function removeTransition(e){
-		if(e.propertyName !== "box-shadow") return; 
-		this.classList.remove("playing");
-		
-	}
-	
-	const keys = document.querySelectorAll(".key");
-	keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+		function removeTransition(e) {
+			if (e.propertyName !== "box-shadow") return;
+			this.classList.remove("playing");
+
+		}
+
+		const keys = document.querySelectorAll(".key");
+		keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 
 
 
-</script>
+	</script>
 
 
 </body>
+
 </html>

@@ -1,86 +1,88 @@
 <!DOCTYPE html>
+
 <head>
 	<title>
-		Music 
+		Music
 	</title>
-	<link rel="stylesheet" type = "text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
+
 <body>
 
 
 
-	
+
 	<div class="keys">
-		
-		<div data-key="KeyA" class="key">
+
+		<div data-key="a" class="key">
 			<kbd>A</kbd>
 			<span>Gun</span>
 		</div>
-		<div data-key="KeyS" class="key">
+		<div data-key="s" class="key">
 			<kbd>S</kbd>
 			<span>Sword</span>
 		</div>
-		<div data-key="KeyD" class="key">
+		<div data-key="d" class="key">
 			<kbd>D</kbd>
 			<span>Scream</span>
 		</div>
-		<div data-key="KeyF" class="key">
+		<div data-key="f" class="key">
 			<kbd>F</kbd>
 			<span>Dunn</span>
 		</div>
-		<div data-key="KeyJ" class="key">
+		<div data-key="j" class="key">
 			<kbd>J</kbd>
 			<span>Cmylmz</span>
 		</div>
-		<div data-key="KeyK" class="key">
+		<div data-key="k" class="key">
 			<kbd>K</kbd>
 			<span>Mario</span>
 		</div>
-		<div data-key="KeyL" class="key">
+		<div data-key="l" class="key">
 			<kbd>L</kbd>
 			<span>Duck</span>
 		</div>
-		<div data-key="semicolon" class="key">
-			<kbd>Ş</kbd>
+		<div data-key="ö" class="key">
+			<kbd>Ö</kbd>
 			<span>Cow</span>
 		</div>
 
 	</div>
 
-	<audio data-key = "KeyA" src="sounds/gun.mp3"></audio>
-	<audio data-key = "KeyS" src="sounds/sword.mp3"></audio>
-	<audio data-key = "KeyD" src="sounds/girlScream.mp3"></audio>
-	<audio data-key = "KeyF" src="sounds/dunn.mp3"></audio>
-	<audio data-key = "KeyJ" src="sounds/cemYilmaz.mp3"></audio>
-	<audio data-key = "KeyK" src="sounds/marioJump.mp3"></audio>
-	<audio data-key = "KeyL" src="sounds/duck.mp3"></audio>
-	<audio data-key = "semicolon" src="sounds/cow.mp3"></audio>
+	<audio data-key="a" src="sounds/gun.mp3"></audio>
+	<audio data-key="s" src="sounds/sword.mp3"></audio>
+	<audio data-key="d" src="sounds/girlScream.mp3"></audio>
+	<audio data-key="f" src="sounds/dunn.mp3"></audio>
+	<audio data-key="j" src="sounds/cemYilmaz.mp3"></audio>
+	<audio data-key="k" src="sounds/marioJump.mp3"></audio>
+	<audio data-key="l" src="sounds/duck.mp3"></audio>
+	<audio data-key="ö" src="sounds/cow.mp3"></audio>
 
 
 
 	<script>
 
-		function playSound(e){
+		function playSound(e) {
 			console.log(e);
-			const audio = document.querySelector(`audio[data-key = "${e.code}"]`);
-			const key = document.querySelector(`.key[data-key ="${e.code}" ]`);
-			console.log(key);
-			if(!audio) return; // stop the function from running all together
+			const audio = document.querySelector(`audio[data-key = "${e.key}"]`);
+			const key = document.querySelector(`.key[data-key ="${e.key}" ]`);
+
+			if (!audio) return; // stop the function from running all together
 			audio.currentTime = 0; // şarkıyı tekrar sıfırdan başlatmak için
 			audio.play();
 			key.classList.add('playing');
 
 		}
 
-		function removeTransition(e){
-			if(e.propertyName !== 'transform') return; // transform işlemi değilse atla
+		function removeTransition(e) {
+			if (e.propertyName !== 'transform') return; // transform işlemi değilse atla
 			this.classList.remove('playing');
 		}
 
 		const keys = document.querySelectorAll('.key');
-		
+
 		keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
 		window.addEventListener('keydown', playSound);
